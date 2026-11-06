@@ -1,6 +1,8 @@
 /**
  * PORTFOLIO CLIENT APPLICATION JAVASCRIPT
  * Dinesh Reddy Chada - Professional Data Analyst Portfolio
+ * Interactive Architecture: Precision Custom Cursor, Telemetry Simulation,
+ * Bulletproof Tabs & Filters, Modal Controllers, and Smooth Navigation.
  */
 
 // Portfolio Data Repository
@@ -137,16 +139,90 @@ const portfolioData = {
   ]
 };
 
-// Initialization on DOM Ready
-document.addEventListener("DOMContentLoaded", () => {
+// ==========================================
+// INITIALIZATION LIFECYCLE (SAFE & IMMEDIATE)
+// ==========================================
+function initApp() {
+  initCustomCursor();
   initScrollProgress();
   initNavigation();
+  initDashboardTabs();
   initProjectFilters();
   initContactForm();
-});
+  initTerminalSimulation();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initApp);
+} else {
+  initApp();
+}
 
 // ==========================================
-// 1. Scroll Progress & Sticky Navbar
+// 1. CUSTOM PRECISION INTERACTIVE CURSOR
+// ==========================================
+function initCustomCursor() {
+  const cursorDot = document.getElementById("cursor-dot");
+  const cursorRing = document.getElementById("cursor-ring");
+  if (!cursorDot || !cursorRing) return;
+
+  if (window.matchMedia("(pointer: coarse)").matches) {
+    cursorDot.style.display = "none";
+    cursorRing.style.display = "none";
+    return;
+  }
+
+  let mouseX = -100;
+  let mouseY = -100;
+  let ringX = -100;
+  let ringY = -100;
+
+  window.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+  }, { passive: true });
+
+  function renderRing() {
+    ringX += (mouseX - ringX) * 0.18;
+    ringY += (mouseY - ringY) * 0.18;
+    cursorRing.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
+    requestAnimationFrame(renderRing);
+  }
+  requestAnimationFrame(renderRing);
+
+  // Bind hover states to all interactive elements
+  function bindHover(elements) {
+    elements.forEach(el => {
+      el.addEventListener("mouseenter", () => {
+        cursorDot.classList.add("hover");
+        cursorRing.classList.add("hover");
+      });
+      el.addEventListener("mouseleave", () => {
+        cursorDot.classList.remove("hover");
+        cursorRing.classList.remove("hover");
+      });
+    });
+  }
+
+  const targets = document.querySelectorAll(
+    "a, button, input, textarea, .d-tab-btn, .filter-btn, .kpi-card, .project-case-card, .skill-category-card, .cert-editorial-card, .contact-tile, .gauge-box"
+  );
+  bindHover(targets);
+
+  window.addEventListener("mousedown", () => {
+    cursorDot.classList.add("click");
+    cursorRing.classList.add("click");
+  });
+
+  window.addEventListener("mouseup", () => {
+    cursorDot.classList.remove("click");
+    cursorRing.classList.remove("click");
+  });
+}
+
+// ==========================================
+// 2. SCROLL PROGRESS & DYNAMIC NAVBAR
 // ==========================================
 function initScrollProgress() {
   const progressBar = document.getElementById("scroll-progress");
@@ -160,7 +236,7 @@ function initScrollProgress() {
     }
 
     if (navbar) {
-      if (window.scrollY > 20) {
+      if (window.scrollY > 25) {
         navbar.classList.add("scrolled");
       } else {
         navbar.classList.remove("scrolled");
@@ -170,7 +246,7 @@ function initScrollProgress() {
 }
 
 // ==========================================
-// 2. Navigation & Smooth Section Tracking
+// 3. SMOOTH NAVIGATION & ACTIVE SPY
 // ==========================================
 function initNavigation() {
   const mobileToggle = document.getElementById("mobile-menu-toggle");
@@ -178,12 +254,19 @@ function initNavigation() {
   const navLinks = document.querySelectorAll(".nav-link, .mobile-nav a");
 
   if (mobileToggle && mobileNav) {
-    mobileToggle.addEventListener("click", () => {
+    mobileToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
       mobileNav.classList.toggle("open");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!mobileNav.contains(e.target) && !mobileToggle.contains(e.target)) {
+        mobileNav.classList.remove("open");
+      }
     });
   }
 
-  // Smooth scroll and mobile menu close
+  // Smooth Scrolling with sticky header compensation
   navLinks.forEach(link => {
     link.addEventListener("click", (e) => {
       const targetId = link.getAttribute("href");
@@ -191,7 +274,15 @@ function initNavigation() {
         e.preventDefault();
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
-          targetElement.scrollIntoView({ behavior: "smooth" });
+          const headerOffset = 70;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+
           if (mobileNav) mobileNav.classList.remove("open");
         }
       }
@@ -213,16 +304,15 @@ function initNavigation() {
         });
       }
     });
-  }, { threshold: 0.3 });
+  }, { threshold: 0.25 });
 
   sections.forEach(sec => observer.observe(sec));
 }
 
 // ==========================================
-// 3. Data Analytics & Visualization Tab Switcher
+// 4. DATA ANALYTICS TAB SWITCHER (BULLETPROOF)
 // ==========================================
 window.switchDashboardTab = function(tabId) {
-  // Update nav buttons
   const buttons = document.querySelectorAll(".d-tab-btn");
   buttons.forEach(btn => {
     if (btn.getAttribute("data-tab") === tabId) {
@@ -232,7 +322,6 @@ window.switchDashboardTab = function(tabId) {
     }
   });
 
-  // Update panels
   const panels = document.querySelectorAll(".dashboard-view-panel");
   panels.forEach(panel => {
     if (panel.id === `${tabId}-panel`) {
@@ -243,37 +332,104 @@ window.switchDashboardTab = function(tabId) {
   });
 };
 
-// ==========================================
-// 4. Project Category Filtering
-// ==========================================
-function initProjectFilters() {
-  const filterBtns = document.querySelectorAll(".filter-btn");
-  const projectCards = document.querySelectorAll(".project-case-card");
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      filterBtns.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      const category = btn.getAttribute("data-filter");
-
-      projectCards.forEach(card => {
-        const cardCat = card.getAttribute("data-category");
-        if (category === "All" || cardCat === category) {
-          card.style.display = "grid";
-        } else {
-          card.style.display = "none";
-        }
-      });
+function initDashboardTabs() {
+  const tabButtons = document.querySelectorAll(".d-tab-btn");
+  tabButtons.forEach(btn => {
+    btn.addEventListener("click", function() {
+      const tabId = this.getAttribute("data-tab");
+      if (tabId) {
+        window.switchDashboardTab(tabId);
+      }
     });
   });
 }
 
 // ==========================================
-// 5. Modal Dialog Handlers
+// 5. INTERACTIVE HERO TELEMETRY SIMULATOR
 // ==========================================
+let simCount = 1;
+window.simulateQuery = function() {
+  const consoleEl = document.getElementById("terminal-console-output");
+  const accuracyEl = document.getElementById("gauge-accuracy");
+  const latencyEl = document.getElementById("gauge-latency");
+  const precisionEl = document.getElementById("gauge-r2");
 
-// Open Project Details Modal
+  if (!consoleEl) return;
+
+  const queries = [
+    "[QUERY] EXPLAIN ANALYZE SELECT * FROM crop_features WHERE soil_ph BETWEEN 6.0 AND 7.5;",
+    "[MODEL] Random Forest Regressor cross-validation iteration completed (Fold 5/5).",
+    "[NLP] SentenceTransformers: Tokenized 1,240 candidate resume entities. Cosine score: 0.941",
+    "[ETL] Ingestion pipeline synced: 42,000 telemetry datapoints normalized in 8.4ms.",
+    "[VALIDATION] Chi-Square & ANOVA statistical significance verified (p < 0.001)."
+  ];
+
+  const randomQuery = queries[simCount % queries.length];
+  simCount++;
+
+  // Update console log
+  const newLog = document.createElement("div");
+  newLog.style.color = "#38BDF8";
+  newLog.textContent = `> ${randomQuery}`;
+  consoleEl.appendChild(newLog);
+  consoleEl.scrollTop = consoleEl.scrollHeight;
+
+  // Pulse metrics slightly for live feel
+  if (latencyEl) {
+    const lat = Math.floor(Math.random() * 6) + 10;
+    latencyEl.textContent = `${lat}ms`;
+  }
+  if (accuracyEl) {
+    accuracyEl.textContent = "99.9%";
+  }
+};
+
+function initTerminalSimulation() {
+  const btn = document.getElementById("run-telemetry-btn");
+  if (btn) {
+    btn.addEventListener("click", window.simulateQuery);
+  }
+}
+
+// ==========================================
+// 6. PROJECT CATEGORY FILTERING
+// ==========================================
+window.filterProjects = function(category) {
+  const filterBtns = document.querySelectorAll(".filter-btn");
+  filterBtns.forEach(btn => {
+    if (btn.getAttribute("data-filter") === category) {
+      btn.classList.add("active");
+    } else {
+      btn.classList.remove("active");
+    }
+  });
+
+  const projectCards = document.querySelectorAll(".project-case-card");
+  projectCards.forEach(card => {
+    const cardCat = card.getAttribute("data-category");
+    if (category === "All" || cardCat === category) {
+      card.style.display = "grid";
+    } else {
+      card.style.display = "none";
+    }
+  });
+};
+
+function initProjectFilters() {
+  const filterBtns = document.querySelectorAll(".filter-btn");
+  filterBtns.forEach(btn => {
+    btn.addEventListener("click", function() {
+      const category = this.getAttribute("data-filter");
+      if (category) {
+        window.filterProjects(category);
+      }
+    });
+  });
+}
+
+// ==========================================
+// 7. MODAL CONTROLLERS (PROJECT, CERT, RESUME)
+// ==========================================
 window.openProjectModal = function(projectId) {
   const project = portfolioData.projects.find(p => p.id === projectId);
   if (!project) return;
@@ -294,8 +450,8 @@ window.openProjectModal = function(projectId) {
 
   if (featuresList) {
     featuresList.innerHTML = project.features.map(f => `
-      <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;font-size:0.9rem;color:var(--text-secondary);line-height:1.6;">
-        <span style="color:var(--teal-primary);font-weight:700;line-height:1.4;">✓</span>
+      <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;font-size:0.88rem;color:#CBD5E1;line-height:1.6;">
+        <span style="color:#14B8A6;font-weight:700;">✓</span>
         <span>${f}</span>
       </li>
     `).join("");
@@ -314,7 +470,6 @@ window.openProjectModal = function(projectId) {
   if (modal) modal.classList.add("open");
 };
 
-// Open Certificate Preview Modal
 window.openCertModal = function(certId) {
   const cert = portfolioData.certifications.find(c => c.id === certId);
   if (!cert) return;
@@ -333,18 +488,16 @@ window.openCertModal = function(certId) {
   if (modal) modal.classList.add("open");
 };
 
-// Open Resume Preview Modal
 window.openResumeModal = function() {
   const modal = document.getElementById("resume-modal");
   if (modal) modal.classList.add("open");
 };
 
-// Close all active modals
 window.closeModals = function() {
   document.querySelectorAll(".modal-overlay").forEach(m => m.classList.remove("open"));
 };
 
-// Trigger simulated resume download
+// Download Resume
 window.downloadResume = function() {
   const resumeUrl = "resume.pdf";
   const link = document.createElement("a");
@@ -353,37 +506,62 @@ window.downloadResume = function() {
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
+
+  alert("Resume download initiated! File: Dinesh_Reddy_Chada_Resume.pdf");
 };
 
-// Print resume
-window.printResume = function() {
-  window.print();
-};
-
-// Copy email address helper with feedback toast
+// Clipboard Helpers with Robust Fallback
 window.copyEmailAddress = function() {
-  navigator.clipboard.writeText(portfolioData.personal.email).then(() => {
-    const feedback = document.getElementById("copy-email-toast");
-    if (feedback) {
-      feedback.style.display = "inline";
-      setTimeout(() => feedback.style.display = "none", 3000);
-    }
-  });
+  const text = portfolioData.personal.email;
+  copyToClipboard(text, "copy-email-toast");
 };
 
-// Copy phone number helper with feedback toast
 window.copyPhoneNumber = function() {
-  navigator.clipboard.writeText(portfolioData.personal.phone).then(() => {
-    const feedback = document.getElementById("copy-phone-toast");
-    if (feedback) {
-      feedback.style.display = "inline";
-      setTimeout(() => feedback.style.display = "none", 3000);
-    }
-  });
+  const text = portfolioData.personal.phone;
+  copyToClipboard(text, "copy-phone-toast");
 };
+
+function copyToClipboard(text, toastId) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => {
+      showToast(toastId);
+    }).catch(() => {
+      fallbackCopy(text, toastId);
+    });
+  } else {
+    fallbackCopy(text, toastId);
+  }
+}
+
+function fallbackCopy(text, toastId) {
+  const textArea = document.createElement("textarea");
+  textArea.value = text;
+  textArea.style.position = "fixed";
+  textArea.style.left = "-999999px";
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+  try {
+    document.execCommand('copy');
+    showToast(toastId);
+  } catch (err) {
+    console.error('Fallback copy failed', err);
+  }
+  document.body.removeChild(textArea);
+}
+
+function showToast(toastId) {
+  const el = document.getElementById(toastId);
+  if (el) {
+    el.style.display = "inline";
+    setTimeout(() => {
+      el.style.display = "none";
+    }, 3000);
+  }
+}
 
 // ==========================================
-// 6. Contact Form Validation & Handler
+// 8. CONTACT FORM HANDLER
 // ==========================================
 function initContactForm() {
   const form = document.getElementById("contact-form");
@@ -399,7 +577,6 @@ function initContactForm() {
 
     let hasError = false;
 
-    // Validate Name
     if (!name) {
       showError("name-error", "Full name is required.");
       hasError = true;
@@ -407,7 +584,6 @@ function initContactForm() {
       hideError("name-error");
     }
 
-    // Validate Email
     if (!email) {
       showError("email-error", "Email address is required.");
       hasError = true;
@@ -418,7 +594,6 @@ function initContactForm() {
       hideError("email-error");
     }
 
-    // Validate Subject
     if (!subject) {
       showError("subject-error", "Subject is required.");
       hasError = true;
@@ -426,7 +601,6 @@ function initContactForm() {
       hideError("subject-error");
     }
 
-    // Validate Message
     if (!message || message.length < 10) {
       showError("message-error", "Message must be at least 10 characters long.");
       hasError = true;
@@ -436,7 +610,6 @@ function initContactForm() {
 
     if (hasError) return;
 
-    // Submission State Simulation
     const submitBtn = form.querySelector("button[type='submit']");
     const originalText = submitBtn.innerHTML;
     submitBtn.innerHTML = "Sending Message...";
@@ -452,7 +625,7 @@ function initContactForm() {
         successToast.style.display = "block";
         setTimeout(() => successToast.style.display = "none", 8000);
       }
-    }, 1200);
+    }, 1000);
   });
 }
 

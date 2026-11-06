@@ -178,35 +178,71 @@ export default function Hero({ onOpenResumeModal }) {
 
           </div>
 
-          {/* Right Column: Professional Data Analyst Portrait & Status Card */}
+          {/* Right Column: Interactive Data Telemetry Terminal (NO PERSON PHOTO) */}
           <div className="lg:col-span-5 flex justify-center items-center relative">
-            <div className="relative w-full max-w-sm rounded-2xl overflow-hidden border border-slate-300 dark:border-white/10 bg-white dark:bg-navy-900 shadow-xl transition-all duration-300 hover:shadow-2xl">
+            <div className="relative w-full max-w-md rounded-2xl overflow-hidden border border-slate-700/80 bg-slate-900/90 shadow-2xl backdrop-blur-md">
               
-              {/* Photo Wrapper */}
-              <div className="relative aspect-[4/5] w-full overflow-hidden bg-slate-100 dark:bg-navy-950">
-                <img 
-                  src="/images/dinesh-portrait.jpg" 
-                  alt="Dinesh Reddy Chada - Data Analyst" 
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  loading="eager"
-                />
+              {/* Window Header */}
+              <div className="px-4 py-3 bg-slate-950/90 border-b border-slate-800 flex items-center justify-between">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                </div>
+                <span className="font-mono text-xs text-slate-400">dinesh_telemetry.py</span>
+                <span className="inline-flex items-center gap-1 font-mono text-[11px] text-emerald-400 font-semibold">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> LIVE
+                </span>
               </div>
 
-              {/* Caption & Status Bar */}
-              <div className="p-4 bg-white dark:bg-navy-900 border-t border-slate-200 dark:border-white/10 flex items-center justify-between">
-                <div>
-                  <h4 className="font-heading font-bold text-sm text-slate-900 dark:text-white">
-                    {personalInfo.name}
-                  </h4>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
-                    Data Analyst & Data Science Enthusiast
-                  </p>
+              {/* Terminal Body */}
+              <div className="p-5 space-y-4 font-mono text-xs">
+                
+                {/* Code Query Block */}
+                <div className="p-3 rounded-lg bg-black/40 border border-white/5 text-cyan-300 leading-relaxed text-[11px]">
+                  <span className="text-pink-400 font-semibold">SELECT</span> model, accuracy, latency<br/>
+                  <span className="text-pink-400 font-semibold">FROM</span> production_pipelines<br/>
+                  <span className="text-pink-400 font-semibold">WHERE</span> status = <span className="text-emerald-300">'Optimized'</span>;
                 </div>
 
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-semibold border border-emerald-500/20">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span>Available</span>
+                {/* 3 Metric Gauges */}
+                <div className="grid grid-cols-3 gap-2 text-center">
+                  <div className="p-2.5 rounded-lg bg-white/5 border border-white/5">
+                    <div className="font-bold text-white text-base">99.8%</div>
+                    <div className="text-[10px] text-slate-400 uppercase tracking-wider mt-0.5">Accuracy</div>
+                  </div>
+                  <div className="p-2.5 rounded-lg bg-white/5 border border-white/5">
+                    <div className="font-bold text-white text-base">12ms</div>
+                    <div className="text-[10px] text-slate-400 uppercase tracking-wider mt-0.5">Latency</div>
+                  </div>
+                  <div className="p-2.5 rounded-lg bg-white/5 border border-white/5">
+                    <div className="font-bold text-white text-base">0.94</div>
+                    <div className="text-[10px] text-slate-400 uppercase tracking-wider mt-0.5">Model R²</div>
+                  </div>
                 </div>
+
+                {/* Sparkline Visual Simulation */}
+                <div className="p-3 rounded-lg bg-black/30 border border-white/5 space-y-2">
+                  <div className="flex justify-between text-[10px] text-slate-400">
+                    <span>TELEMETRY STREAM</span>
+                    <span className="text-emerald-400">18,420 RECS/S</span>
+                  </div>
+                  <div className="h-10 w-full flex items-end gap-1.5 pt-1">
+                    <div className="w-full bg-cyan-500/30 rounded-t h-[40%]" />
+                    <div className="w-full bg-cyan-500/50 rounded-t h-[65%]" />
+                    <div className="w-full bg-cyan-500/40 rounded-t h-[55%]" />
+                    <div className="w-full bg-cyan-500/70 rounded-t h-[80%]" />
+                    <div className="w-full bg-teal-400/80 rounded-t h-[95%]" />
+                    <div className="w-full bg-teal-400 rounded-t h-[100%]" />
+                  </div>
+                </div>
+
+                {/* Live Console Output */}
+                <div className="p-2.5 rounded bg-black/60 text-[10px] text-emerald-300/90 space-y-1">
+                  <div>> [OK] Crop Yield Random Forest regressor loaded.</div>
+                  <div>> [OK] NLP SentenceTransformers semantic embedding ready.</div>
+                </div>
+
               </div>
 
             </div>
