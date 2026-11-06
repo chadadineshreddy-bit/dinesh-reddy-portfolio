@@ -178,73 +178,26 @@ export default function Hero({ onOpenResumeModal }) {
 
           </div>
 
-          {/* Right Column: Interactive Data Telemetry Terminal (NO PERSON PHOTO) */}
+          {/* Right Column: 3D Business Intelligence Visual Card (NO PERSON PHOTO) */}
           <div className="lg:col-span-5 flex justify-center items-center relative">
-            <div className="relative w-full max-w-md rounded-2xl overflow-hidden border border-slate-700/80 bg-slate-900/90 shadow-2xl backdrop-blur-md">
-              
-              {/* Window Header */}
-              <div className="px-4 py-3 bg-slate-950/90 border-b border-slate-800 flex items-center justify-between">
-                <div className="flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-red-500" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+            <div className="relative w-full max-w-lg rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl transition-transform hover:-translate-y-1">
+              <div className="w-full aspect-[16/10] bg-slate-100 overflow-hidden">
+                <img 
+                  src="/images/analytics-dashboard-3d.jpg" 
+                  alt="3D Business Intelligence and Data Analytics Dashboard Render" 
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
+              </div>
+              <div className="p-4 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                <div>
+                  <h4 className="text-sm font-bold text-slate-800 dark:text-white">Executive Metric Intelligence Dashboard</h4>
+                  <p className="text-xs text-slate-500">3D visual rendering showcasing revenue KPIs & analytics</p>
                 </div>
-                <span className="font-mono text-xs text-slate-400">dinesh_telemetry.py</span>
-                <span className="inline-flex items-center gap-1 font-mono text-[11px] text-emerald-400 font-semibold">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> LIVE
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" /> 3D Prototype
                 </span>
               </div>
-
-              {/* Terminal Body */}
-              <div className="p-5 space-y-4 font-mono text-xs">
-                
-                {/* Code Query Block */}
-                <div className="p-3 rounded-lg bg-black/40 border border-white/5 text-cyan-300 leading-relaxed text-[11px]">
-                  <span className="text-pink-400 font-semibold">SELECT</span> model, accuracy, latency<br/>
-                  <span className="text-pink-400 font-semibold">FROM</span> production_pipelines<br/>
-                  <span className="text-pink-400 font-semibold">WHERE</span> status = <span className="text-emerald-300">'Optimized'</span>;
-                </div>
-
-                {/* 3 Metric Gauges */}
-                <div className="grid grid-cols-3 gap-2 text-center">
-                  <div className="p-2.5 rounded-lg bg-white/5 border border-white/5">
-                    <div className="font-bold text-white text-base">99.8%</div>
-                    <div className="text-[10px] text-slate-400 uppercase tracking-wider mt-0.5">Accuracy</div>
-                  </div>
-                  <div className="p-2.5 rounded-lg bg-white/5 border border-white/5">
-                    <div className="font-bold text-white text-base">12ms</div>
-                    <div className="text-[10px] text-slate-400 uppercase tracking-wider mt-0.5">Latency</div>
-                  </div>
-                  <div className="p-2.5 rounded-lg bg-white/5 border border-white/5">
-                    <div className="font-bold text-white text-base">0.94</div>
-                    <div className="text-[10px] text-slate-400 uppercase tracking-wider mt-0.5">Model R²</div>
-                  </div>
-                </div>
-
-                {/* Sparkline Visual Simulation */}
-                <div className="p-3 rounded-lg bg-black/30 border border-white/5 space-y-2">
-                  <div className="flex justify-between text-[10px] text-slate-400">
-                    <span>TELEMETRY STREAM</span>
-                    <span className="text-emerald-400">18,420 RECS/S</span>
-                  </div>
-                  <div className="h-10 w-full flex items-end gap-1.5 pt-1">
-                    <div className="w-full bg-cyan-500/30 rounded-t h-[40%]" />
-                    <div className="w-full bg-cyan-500/50 rounded-t h-[65%]" />
-                    <div className="w-full bg-cyan-500/40 rounded-t h-[55%]" />
-                    <div className="w-full bg-cyan-500/70 rounded-t h-[80%]" />
-                    <div className="w-full bg-teal-400/80 rounded-t h-[95%]" />
-                    <div className="w-full bg-teal-400 rounded-t h-[100%]" />
-                  </div>
-                </div>
-
-                {/* Live Console Output */}
-                <div className="p-2.5 rounded bg-black/60 text-[10px] text-emerald-300/90 space-y-1">
-                  <div>> [OK] Crop Yield Random Forest regressor loaded.</div>
-                  <div>> [OK] NLP SentenceTransformers semantic embedding ready.</div>
-                </div>
-
-              </div>
-
             </div>
           </div>
 
