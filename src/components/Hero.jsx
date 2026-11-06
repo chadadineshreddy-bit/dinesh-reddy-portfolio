@@ -178,83 +178,38 @@ export default function Hero({ onOpenResumeModal }) {
 
           </div>
 
-          {/* Right Column: Premium Futuristic Profile Card / Visual Element */}
+          {/* Right Column: Professional Data Analyst Portrait & Status Card */}
           <div className="lg:col-span-5 flex justify-center items-center relative">
-            
-            {/* Background glowing rings */}
-            <div className="relative w-72 h-72 sm:w-88 sm:h-88 md:w-96 md:h-96 flex items-center justify-center">
+            <div className="relative w-full max-w-sm rounded-2xl overflow-hidden border border-slate-300 dark:border-white/10 bg-white dark:bg-navy-900 shadow-xl transition-all duration-300 hover:shadow-2xl">
               
-              {/* Outer decorative spinning ring */}
-              <div className="absolute inset-0 rounded-full border border-dashed border-cyan-500/30 animate-spin-slow" />
-              
-              {/* Middle pulsing ring */}
-              <div className="absolute inset-6 rounded-full border border-purple-500/25 animate-pulse-slow" />
-              
-              {/* Central Glowing Card Container */}
-              <div className="relative w-64 h-64 sm:w-76 sm:h-76 md:w-80 md:h-80 rounded-3xl p-1 bg-gradient-to-tr from-cyan-500 via-primary-600 to-purple-600 shadow-glow-primary">
-                <div className="w-full h-full rounded-[22px] bg-slate-900 dark:bg-navy-900 overflow-hidden relative flex flex-col items-center justify-center p-6 text-center">
-                  
-                  {/* Subtle code matrix watermark */}
-                  <div className="absolute inset-0 bg-grid-pattern opacity-30" />
-                  
-                  {/* Professional Avatar / Monogram */}
-                  <div className="relative z-10 w-28 h-28 sm:w-32 sm:h-32 rounded-2xl bg-gradient-to-br from-cyan-400/20 via-primary-500/20 to-purple-500/20 border-2 border-cyan-400/40 flex items-center justify-center shadow-inner mb-4 group">
-                    <span className="font-heading font-black text-5xl sm:text-6xl text-transparent bg-clip-text bg-gradient-to-br from-cyan-300 via-blue-400 to-purple-400 tracking-wider">
-                      {personalInfo.initials}
-                    </span>
-                    <div className="absolute -bottom-2 -right-2 p-1.5 rounded-lg bg-emerald-500 text-white shadow-lg">
-                      <CheckCircle2 className="w-4 h-4" />
-                    </div>
-                  </div>
-
-                  {/* Identification text */}
-                  <div className="relative z-10">
-                    <h3 className="font-heading font-bold text-lg text-white">
-                      {personalInfo.name}
-                    </h3>
-                    <p className="text-xs text-cyan-300 font-mono mt-0.5">
-                      B.Tech CSE (Data Science)
-                    </p>
-                    <div className="mt-2 text-[11px] text-slate-400 flex items-center justify-center gap-1">
-                      <span>CMR Technical Campus</span>
-                      <span>•</span>
-                      <span className="text-emerald-400 font-semibold">7.85 CGPA</span>
-                    </div>
-                  </div>
-
-                </div>
+              {/* Photo Wrapper */}
+              <div className="relative aspect-[4/5] w-full overflow-hidden bg-slate-100 dark:bg-navy-950">
+                <img 
+                  src="/images/dinesh-portrait.jpg" 
+                  alt="Dinesh Reddy Chada - Data Analyst" 
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  loading="eager"
+                />
               </div>
 
-              {/* Floating Badge 1: Top Right - Data Analytics */}
-              <div className="absolute -top-3 -right-2 sm:top-2 sm:right-0 glass-card px-3.5 py-2 rounded-2xl shadow-glow-cyan border border-cyan-500/40 animate-float-slow flex items-center gap-2">
-                <div className="p-1.5 rounded-lg bg-cyan-500/20 text-cyan-400">
-                  <TrendingUp className="w-4 h-4" />
+              {/* Caption & Status Bar */}
+              <div className="p-4 bg-white dark:bg-navy-900 border-t border-slate-200 dark:border-white/10 flex items-center justify-between">
+                <div>
+                  <h4 className="font-heading font-bold text-sm text-slate-900 dark:text-white">
+                    {personalInfo.name}
+                  </h4>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    Data Analyst & Data Science Enthusiast
+                  </p>
                 </div>
-                <div className="text-left">
-                  <div className="text-[10px] text-slate-400 font-medium leading-none">Specialization</div>
-                  <div className="text-xs font-bold text-slate-200">Data Analytics</div>
-                </div>
-              </div>
 
-              {/* Floating Badge 2: Bottom Left - Python & ML */}
-              <div className="absolute -bottom-4 -left-2 sm:bottom-4 sm:-left-4 glass-card px-3.5 py-2 rounded-2xl shadow-glow-purple border border-purple-500/40 animate-float-reverse flex items-center gap-2">
-                <div className="p-1.5 rounded-lg bg-purple-500/20 text-purple-400">
-                  <Terminal className="w-4 h-4" />
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-semibold border border-emerald-500/20">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span>Available</span>
                 </div>
-                <div className="text-left">
-                  <div className="text-[10px] text-slate-400 font-medium leading-none">Core Stack</div>
-                  <div className="text-xs font-bold text-slate-200">Python & ML</div>
-                </div>
-              </div>
-
-              {/* Floating Badge 3: Bottom Right - Hyderabad, India */}
-              <div className="absolute bottom-6 -right-4 hidden sm:flex glass-card px-3 py-1.5 rounded-xl border border-white/10 shadow-lg text-[11px] text-slate-300 items-center gap-1.5 animate-float-medium">
-                <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
-                <span>Hyderabad, India</span>
               </div>
 
             </div>
-
           </div>
 
         </div>

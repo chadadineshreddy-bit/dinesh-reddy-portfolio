@@ -7,12 +7,12 @@
 export const personalInfo = {
   name: "Dinesh Reddy Chada",
   initials: "DC",
-  title: "Aspiring Data Analyst | Data Science Enthusiast | Python Developer",
+  title: "Aspiring Data Analyst | Data Science Enthusiast",
   animatedTitles: [
     "Aspiring Data Analyst",
-    "Python Developer",
     "Data Science Enthusiast",
-    "Machine Learning Enthusiast"
+    "Python Developer",
+    "Business Intelligence Enthusiast"
   ],
   bioIntro: "I am a Computer Science and Data Science graduate passionate about working with data, discovering meaningful insights, and solving real-world problems. I enjoy learning new technologies and building projects using Python, SQL, data analytics, and machine learning.",
   aboutDetailed: [
@@ -132,7 +132,7 @@ export const projectsData = [
     ],
     githubUrl: "https://github.com/dineshreddychada/crop-yield-prediction", // Placeholder: update with your link
     liveUrl: "#", // Placeholder: update with demo link if hosted
-    image: "crop-yield",
+    image: "/images/crop-yield-analytics.png",
     accentColor: "from-emerald-500/20 to-teal-500/10",
     borderAccent: "group-hover:border-emerald-500/50",
     badge: "ML & Agriculture",
@@ -154,7 +154,7 @@ export const projectsData = [
     ],
     githubUrl: "https://github.com/dineshreddychada/hire-ai-screening", // Placeholder: update with your link
     liveUrl: "#", // Placeholder
-    image: "hire-ai",
+    image: "/images/hireai-screening.jpg",
     accentColor: "from-blue-500/20 to-indigo-500/10",
     borderAccent: "group-hover:border-blue-500/50",
     badge: "NLP & AI Screening",
@@ -175,7 +175,7 @@ export const projectsData = [
     ],
     githubUrl: "https://github.com/dineshreddychada/ai-resume-analyzer", // Placeholder
     liveUrl: "#", // Placeholder
-    image: "resume-analyzer",
+    image: "/images/resume-analyzer.jpg",
     accentColor: "from-purple-500/20 to-pink-500/10",
     borderAccent: "group-hover:border-purple-500/50",
     badge: "Data Processing",
@@ -196,7 +196,7 @@ export const projectsData = [
     ],
     githubUrl: "https://github.com/dineshreddychada/ecommerce-food-website", // Placeholder
     liveUrl: "#", // Placeholder
-    image: "food-ecommerce",
+    image: "/images/food-ecommerce.jpg",
     accentColor: "from-amber-500/20 to-orange-500/10",
     borderAccent: "group-hover:border-amber-500/50",
     badge: "Frontend UI",

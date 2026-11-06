@@ -74,13 +74,31 @@ export default function Projects() {
                 key={project.id}
                 className="group glass-panel rounded-3xl overflow-hidden border border-slate-200/80 dark:border-white/10 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:border-cyan-500/40 relative"
               >
-                {/* Visual Header / Graphic Banner */}
-                <div className={`relative h-48 w-full bg-gradient-to-br ${project.accentColor} p-6 flex flex-col justify-between overflow-hidden border-b border-slate-200/60 dark:border-white/10`}>
-                  {/* Subtle Grid overlay */}
-                  <div className="absolute inset-0 bg-grid-pattern opacity-40" />
+                {/* Visual Header / Graphic Banner or Real Project Photo */}
+                <div className={`relative h-52 w-full ${project.image && project.image.startsWith('/') ? 'bg-slate-900' : `bg-gradient-to-br ${project.accentColor}`} overflow-hidden border-b border-slate-200/60 dark:border-white/10`}>
+                  {project.image && project.image.startsWith('/') ? (
+                    <>
+                      <img 
+                        src={project.image} 
+                        alt={project.title} 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+                    </>
+                  ) : (
+                    <>
+                      <div className="absolute inset-0 bg-grid-pattern opacity-40" />
+                      <div className="relative z-10 flex items-center justify-center my-auto h-full">
+                        <div className="p-4 rounded-2xl bg-slate-900/80 dark:bg-navy-950/80 border border-white/15 text-cyan-400 group-hover:scale-110 group-hover:text-cyan-300 transition-all duration-300 shadow-lg">
+                          <ProjectIcon className="w-8 h-8" />
+                        </div>
+                      </div>
+                    </>
+                  )}
 
                   {/* Top Category Badges */}
-                  <div className="relative z-10 flex items-center justify-between">
+                  <div className="absolute top-4 left-4 right-4 z-10 flex items-center justify-between">
                     <span className="text-xs font-semibold px-3 py-1 rounded-full bg-slate-900/80 dark:bg-navy-950/80 text-cyan-400 border border-cyan-500/30 backdrop-blur-md">
                       {project.category}
                     </span>
@@ -89,15 +107,8 @@ export default function Projects() {
                     </span>
                   </div>
 
-                  {/* Centered Graphic Icon */}
-                  <div className="relative z-10 flex items-center justify-center my-auto">
-                    <div className="p-4 rounded-2xl bg-slate-900/80 dark:bg-navy-950/80 border border-white/15 text-cyan-400 group-hover:scale-110 group-hover:text-cyan-300 transition-all duration-300 shadow-lg">
-                      <ProjectIcon className="w-8 h-8" />
-                    </div>
-                  </div>
-
                   {/* Bottom tagline */}
-                  <div className="relative z-10 text-xs font-mono text-slate-700 dark:text-slate-300 font-semibold truncate">
+                  <div className="absolute bottom-3 left-4 right-4 z-10 text-xs font-mono text-white/90 font-semibold truncate drop-shadow">
                     {project.tagline}
                   </div>
                 </div>

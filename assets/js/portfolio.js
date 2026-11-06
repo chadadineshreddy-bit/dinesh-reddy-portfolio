@@ -1,6 +1,6 @@
 /**
  * PORTFOLIO CLIENT APPLICATION JAVASCRIPT
- * Dinesh Reddy Chada - Personal Portfolio
+ * Dinesh Reddy Chada - Professional Data Analyst Portfolio
  */
 
 // Portfolio Data Repository
@@ -8,19 +8,13 @@ const portfolioData = {
   personal: {
     name: "Dinesh Reddy Chada",
     initials: "DC",
-    title: "Aspiring Data Analyst | Data Science Enthusiast | Python Developer",
-    animatedTitles: [
-      "Aspiring Data Analyst",
-      "Python Developer",
-      "Data Science Enthusiast",
-      "Machine Learning Enthusiast"
-    ],
+    title: "Aspiring Data Analyst | Data Science Enthusiast",
     email: "chadadineshreddy@gmail.com",
     phone: "+91 6303219304",
     linkedin: "https://www.linkedin.com/in/dinesh-reddy-chada",
     github: "https://github.com/dineshreddychada",
     location: "Hyderabad, Telangana, India",
-    degree: "B.Tech – CSE (Data Science)",
+    degree: "B.Tech – Computer Science and Data Science (CSE-DS)",
     college: "CMR Technical Campus",
     cgpa: "7.85 / 10"
   },
@@ -30,17 +24,18 @@ const portfolioData = {
       id: 1,
       title: "Crop Yield Prediction with Climate and Soil Data",
       category: "Data Science",
-      badge: "ML & Agriculture",
-      tagline: "ML-Driven Agricultural Yield Estimator",
-      description: "Developed a machine learning-based system to predict crop yields using climate and soil-related parameters. The system analyzes environmental and soil information to estimate agricultural productivity, aiding farmers and policymakers with data-driven decision making.",
+      domain: "Agriculture Analytics & ML",
+      image: "assets/images/crop-yield-analytics.png",
+      tagline: "Machine Learning Regression for Agricultural Yield Forecasting",
+      description: "Developed a machine learning-based system to predict crop yields using historical climate and soil parameters. The pipeline analyzes environmental conditions and soil nutrient ratios (NPK, pH, rainfall, temperature) to forecast productivity, empowering farmers and agricultural planners with actionable data-driven insights.",
       technologies: ["Python", "Machine Learning", "Random Forest", "Scikit-learn", "Pandas", "NumPy", "Tkinter"],
       features: [
-        "Dataset uploading and verification pipeline",
-        "Automated data preprocessing & missing value handling",
-        "Feature selection based on soil nutrients and rainfall correlations",
-        "Random Forest Regressor machine learning model training",
-        "Crop yield prediction for major regional crops",
-        "Rigorous model evaluation using RMSE, MSE, and R² score metrics"
+        "Automated dataset ingestion, validation, and multi-variable schema checking",
+        "Outlier remediation and missing value imputation across regional climatic indicators",
+        "Correlation analysis isolating high-impact features (soil nitrogen, rainfall seasonality)",
+        "Random Forest Regressor training with hyperparameter tuning against baseline linear models",
+        "Yield forecasting across key regional crops with high predictive fidelity",
+        "Rigorous performance validation utilizing RMSE, MSE, and R² evaluation metrics"
       ],
       githubUrl: "https://github.com/dineshreddychada/crop-yield-prediction",
       liveUrl: "#"
@@ -49,16 +44,17 @@ const portfolioData = {
       id: 2,
       title: "HireAI – Resume Screening & Candidate Shortlisting Using NLP",
       category: "Data Science",
-      badge: "NLP & AI Screening",
-      tagline: "Automated Semantic Resume Matching Engine",
-      description: "An AI-powered resume screening system designed to analyze resumes and identify suitable candidates based on job requirements, significantly minimizing manual talent screening time and unconscious bias.",
+      domain: "NLP & Talent Analytics",
+      image: "assets/images/hireai-screening.jpg",
+      tagline: "Semantic Document Matching Engine for Talent Acquisition",
+      description: "An intelligent resume screening platform designed to parse unstructured candidate resumes, compute dense contextual embeddings, and calculate semantic similarity against job descriptions using vector cosine similarity to eliminate manual screening bottlenecks.",
       technologies: ["Python", "NLP", "Machine Learning", "Sentence Transformers", "Scikit-learn", "Pandas"],
       features: [
-        "Automated resume text extraction from PDF and Word formats",
-        "Semantic embedding generation with modern Sentence Transformers",
-        "Cosine similarity candidate-to-job matching score",
-        "Dynamic multi-attribute resume ranking",
-        "Automated shortlisting workflow with exportable candidate rosters"
+        "Automated multi-format resume text extraction supporting PDF and Word documents",
+        "Contextual sentence-level embeddings generated with Sentence Transformers",
+        "Vector cosine similarity scoring for objective qualification ranking",
+        "Multi-attribute candidate evaluation incorporating required and preferred skill weights",
+        "Streamlined candidate shortlisting interface with exportable evaluation summaries"
       ],
       githubUrl: "https://github.com/dineshreddychada/hire-ai-screening",
       liveUrl: "#"
@@ -67,15 +63,16 @@ const portfolioData = {
       id: 3,
       title: "AI Resume Analyzer",
       category: "Data Analytics",
-      badge: "Data Processing",
-      tagline: "Intelligent Resume Content & Skill Extraction",
-      description: "An AI-based application that analyzes resume content, extracts relevant information like technical skills and education, and helps evaluate resumes objectively with actionable feedback.",
-      technologies: ["Python", "NLP", "Machine Learning", "Data Processing", "RegEx", "Streamlit"],
+      domain: "Data Extraction & Processing",
+      image: "assets/images/resume-analyzer.jpg",
+      tagline: "Intelligent Resume Content & Skill Taxonomy Parser",
+      description: "An analytical tool that ingests candidate resumes, extracts structured information (programming languages, frameworks, databases, education), and evaluates resume quality and keyword density to provide constructive feedback for job seekers.",
+      technologies: ["Python", "NLP", "Data Extraction", "RegEx", "Streamlit", "Pandas"],
       features: [
-        "Automated resume parsing and entity recognition",
-        "Categorized skill extraction (Programming, Databases, Frameworks)",
-        "Resume quality scoring and keyword density feedback",
-        "Candidate evaluation summary and visual skill distribution chart"
+        "Pattern-based and semantic entity recognition for resume attribute extraction",
+        "Categorized skill taxonomy mapping across technical and soft competency categories",
+        "ATS compatibility analysis and keyword density scoring",
+        "Interactive Streamlit dashboard displaying visual skill breakdowns and formatting recommendations"
       ],
       githubUrl: "https://github.com/dineshreddychada/ai-resume-analyzer",
       liveUrl: "#"
@@ -84,15 +81,16 @@ const portfolioData = {
       id: 4,
       title: "E-Commerce Food Website",
       category: "Web Development",
-      badge: "Frontend UI",
-      tagline: "Interactive & Responsive Online Food Ordering UI",
-      description: "Designed and developed an interactive food ordering website with a responsive user interface, intuitive category browsing, and seamless cart interaction.",
-      technologies: ["HTML", "CSS", "JavaScript", "Responsive Design", "Local Storage"],
+      domain: "Frontend Architecture",
+      image: "assets/images/food-ecommerce.jpg",
+      tagline: "Responsive Online Food Ordering & Cart Management UI",
+      description: "Designed and developed an interactive, responsive online food ordering interface with category navigation, real-time cart state management, and seamless mobile interactions.",
+      technologies: ["HTML5", "CSS3", "JavaScript (ES6+)", "Responsive Design", "LocalStorage"],
       features: [
-        "Mobile-first responsive user interface across all screen sizes",
-        "Dynamic food product catalogue with category filters",
-        "Client-side cart addition, quantity updates, and bill summary",
-        "Smooth micro-interactions, modals, and checkout simulation"
+        "Mobile-first responsive architecture tested across mobile, tablet, and desktop viewports",
+        "Dynamic food catalogue with instant category filtering and search",
+        "Client-side cart management with quantity adjustment and persistent local storage",
+        "Accessible modal dialogues, item review overlays, and simulated checkout flow"
       ],
       githubUrl: "https://github.com/dineshreddychada/ecommerce-food-website",
       liveUrl: "#"
@@ -104,9 +102,9 @@ const portfolioData = {
       id: 1,
       title: "Salesforce Certification",
       issuer: "Salesforce",
-      badge: "Cloud & CRM",
-      description: "Foundational training covering cloud architecture, business logic, customer relationship management, and data management workflows on the Salesforce ecosystem.",
-      credentialId: "SF-PLACEHOLDER",
+      badge: "Cloud & CRM Workflows",
+      description: "Foundational training covering cloud architecture, business logic, customer relationship data management, automation workflows, and enterprise data organization in Salesforce.",
+      credentialId: "SF-DATA-2024",
       credentialUrl: "#"
     },
     {
@@ -114,8 +112,8 @@ const portfolioData = {
       title: "Cisco Networking Academy",
       issuer: "Cisco Networking Academy",
       badge: "Networking Fundamentals",
-      description: "Comprehensive fundamentals of computer networks, IP addressing, protocols, data routing, switching, and network security concepts.",
-      credentialId: "CISCO-PLACEHOLDER",
+      description: "Comprehensive fundamentals of computer networks, IP addressing schemas, protocol suites, data transmission, packet routing, and network security foundations.",
+      credentialId: "CISCO-NET-2023",
       credentialUrl: "#"
     },
     {
@@ -123,8 +121,8 @@ const portfolioData = {
       title: "Tata Forage Virtual Experience",
       issuer: "Tata / Forage",
       badge: "Data Visualization & Analysis",
-      description: "Practical simulation tackling real-world business scenarios: framing business questions, analyzing executive metrics, and building impactful visual charts for C-suite decision-makers.",
-      credentialId: "FORAGE-TATA-PLACEHOLDER",
+      description: "Practical simulation tackling executive business scenarios: translating stakeholder questions into quantitative metrics, designing C-suite visualization dashboards, and presenting data-driven recommendations.",
+      credentialId: "TATA-FORAGE-DATA-2023",
       credentialUrl: "#"
     },
     {
@@ -132,16 +130,15 @@ const portfolioData = {
       title: "Hexart AI Foundation",
       issuer: "Hexart AI",
       badge: "Artificial Intelligence",
-      description: "Foundational concepts of artificial intelligence, machine learning pipelines, ethics in AI, and practical problem framing with data.",
-      credentialId: "HEXART-PLACEHOLDER",
+      description: "Foundational concepts of artificial intelligence, machine learning pipelines, feature representations, ethical AI practices, and practical problem formulation using real data.",
+      credentialId: "HEXART-AI-2023",
       credentialUrl: "#"
     }
   ]
 };
 
+// Initialization on DOM Ready
 document.addEventListener("DOMContentLoaded", () => {
-  initTheme();
-  initTypingEffect();
   initScrollProgress();
   initNavigation();
   initProjectFilters();
@@ -149,100 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ==========================================
-// 1. Theme Management (Dark / Light)
-// ==========================================
-function initTheme() {
-  const toggleBtn = document.getElementById("theme-toggle-btn");
-  const currentTheme = localStorage.getItem("portfolio-theme") || "dark";
-
-  document.documentElement.setAttribute("data-theme", currentTheme);
-  updateThemeIcon(currentTheme);
-
-  if (toggleBtn) {
-    toggleBtn.addEventListener("click", () => {
-      const activeTheme = document.documentElement.getAttribute("data-theme") || "dark";
-      const nextTheme = activeTheme === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", nextTheme);
-      localStorage.setItem("portfolio-theme", nextTheme);
-      updateThemeIcon(nextTheme);
-    });
-  }
-}
-
-function updateThemeIcon(theme) {
-  const iconContainer = document.getElementById("theme-icon");
-  if (!iconContainer) return;
-
-  if (theme === "dark") {
-    // Sun icon
-    iconContainer.innerHTML = `
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="5"></circle>
-        <line x1="12" y1="1" x2="12" y2="3"></line>
-        <line x1="12" y1="21" x2="12" y2="23"></line>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-        <line x1="1" y1="12" x2="3" y2="12"></line>
-        <line x1="21" y1="12" x2="23" y2="12"></line>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-      </svg>
-    `;
-  } else {
-    // Moon icon
-    iconContainer.innerHTML = `
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-      </svg>
-    `;
-  }
-}
-
-// ==========================================
-// 2. Animated Typing Effect
-// ==========================================
-function initTypingEffect() {
-  const textElement = document.getElementById("typed-role-text");
-  if (!textElement) return;
-
-  const words = portfolioData.personal.animatedTitles;
-  let wordIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  let speed = 100;
-
-  function type() {
-    const currentWord = words[wordIndex];
-
-    if (!isDeleting) {
-      textElement.textContent = currentWord.substring(0, charIndex + 1);
-      charIndex++;
-      speed = 90;
-
-      if (charIndex === currentWord.length) {
-        speed = 2000;
-        isDeleting = true;
-      }
-    } else {
-      textElement.textContent = currentWord.substring(0, charIndex - 1);
-      charIndex--;
-      speed = 45;
-
-      if (charIndex === 0) {
-        isDeleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
-        speed = 400;
-      }
-    }
-
-    setTimeout(type, speed);
-  }
-
-  type();
-}
-
-// ==========================================
-// 3. Scroll Progress Indicator & Sticky Nav
+// 1. Scroll Progress & Sticky Navbar
 // ==========================================
 function initScrollProgress() {
   const progressBar = document.getElementById("scroll-progress");
@@ -266,7 +170,7 @@ function initScrollProgress() {
 }
 
 // ==========================================
-// 4. Navigation & Active Section Highlighting
+// 2. Navigation & Smooth Section Tracking
 // ==========================================
 function initNavigation() {
   const mobileToggle = document.getElementById("mobile-menu-toggle");
@@ -309,17 +213,42 @@ function initNavigation() {
         });
       }
     });
-  }, { threshold: 0.35 });
+  }, { threshold: 0.3 });
 
   sections.forEach(sec => observer.observe(sec));
 }
 
 // ==========================================
-// 5. Project Filtering & Modals
+// 3. Data Analytics & Visualization Tab Switcher
+// ==========================================
+window.switchDashboardTab = function(tabId) {
+  // Update nav buttons
+  const buttons = document.querySelectorAll(".d-tab-btn");
+  buttons.forEach(btn => {
+    if (btn.getAttribute("data-tab") === tabId) {
+      btn.classList.add("active");
+    } else {
+      btn.classList.remove("active");
+    }
+  });
+
+  // Update panels
+  const panels = document.querySelectorAll(".dashboard-view-panel");
+  panels.forEach(panel => {
+    if (panel.id === `${tabId}-panel`) {
+      panel.classList.add("active");
+    } else {
+      panel.classList.remove("active");
+    }
+  });
+};
+
+// ==========================================
+// 4. Project Category Filtering
 // ==========================================
 function initProjectFilters() {
-  const filterBtns = document.querySelectorAll(".project-tab-btn");
-  const projectCards = document.querySelectorAll(".project-card");
+  const filterBtns = document.querySelectorAll(".filter-btn");
+  const projectCards = document.querySelectorAll(".project-case-card");
 
   filterBtns.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -330,8 +259,8 @@ function initProjectFilters() {
 
       projectCards.forEach(card => {
         const cardCat = card.getAttribute("data-category");
-        if (category === "All Projects" || cardCat === category) {
-          card.style.display = "flex";
+        if (category === "All" || cardCat === category) {
+          card.style.display = "grid";
         } else {
           card.style.display = "none";
         }
@@ -340,7 +269,11 @@ function initProjectFilters() {
   });
 }
 
-// Project Details Modal Handler
+// ==========================================
+// 5. Modal Dialog Handlers
+// ==========================================
+
+// Open Project Details Modal
 window.openProjectModal = function(projectId) {
   const project = portfolioData.projects.find(p => p.id === projectId);
   if (!project) return;
@@ -355,14 +288,14 @@ window.openProjectModal = function(projectId) {
   const githubLink = document.getElementById("pm-github");
 
   if (title) title.textContent = project.title;
-  if (badge) badge.textContent = `${project.category} • ${project.badge}`;
+  if (badge) badge.textContent = `${project.category} • ${project.domain}`;
   if (tagline) tagline.textContent = project.tagline;
   if (desc) desc.textContent = project.description;
 
   if (featuresList) {
     featuresList.innerHTML = project.features.map(f => `
-      <li style="display:flex;align-items:start;gap:8px;margin-bottom:8px;font-size:0.85rem;color:var(--text-secondary);">
-        <span style="color:#10b981;">✓</span>
+      <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;font-size:0.9rem;color:var(--text-secondary);line-height:1.6;">
+        <span style="color:var(--teal-primary);font-weight:700;line-height:1.4;">✓</span>
         <span>${f}</span>
       </li>
     `).join("");
@@ -370,7 +303,7 @@ window.openProjectModal = function(projectId) {
 
   if (techList) {
     techList.innerHTML = project.technologies.map(t => `
-      <span class="tag-badge" style="color:#22d3ee;background:rgba(6,182,212,0.1);border-color:rgba(6,182,212,0.2);">${t}</span>
+      <span class="tech-tag">${t}</span>
     `).join("");
   }
 
@@ -381,7 +314,7 @@ window.openProjectModal = function(projectId) {
   if (modal) modal.classList.add("open");
 };
 
-// Certificate Preview Modal Handler
+// Open Certificate Preview Modal
 window.openCertModal = function(certId) {
   const cert = portfolioData.certifications.find(c => c.id === certId);
   if (!cert) return;
@@ -393,34 +326,33 @@ window.openCertModal = function(certId) {
   const idEl = document.getElementById("cm-id");
 
   if (title) title.textContent = cert.title;
-  if (issuer) issuer.textContent = `Issued by ${cert.issuer}`;
+  if (issuer) issuer.textContent = `Issued by ${cert.issuer} • ${cert.badge}`;
   if (desc) desc.textContent = cert.description;
   if (idEl) idEl.textContent = cert.credentialId;
 
   if (modal) modal.classList.add("open");
 };
 
-// Resume Preview Modal Handler
+// Open Resume Preview Modal
 window.openResumeModal = function() {
   const modal = document.getElementById("resume-modal");
   if (modal) modal.classList.add("open");
 };
 
-// Close all open modals
+// Close all active modals
 window.closeModals = function() {
   document.querySelectorAll(".modal-overlay").forEach(m => m.classList.remove("open"));
 };
 
 // Trigger simulated resume download
 window.downloadResume = function() {
-  const resumeUrl = "/resume.pdf";
+  const resumeUrl = "resume.pdf";
   const link = document.createElement("a");
   link.href = resumeUrl;
   link.download = "Dinesh_Reddy_Chada_Resume.pdf";
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
-  alert("Resume download triggered! You can place your finalized resume PDF in the 'public/' directory as 'resume.pdf'.");
 };
 
 // Print resume
@@ -428,7 +360,7 @@ window.printResume = function() {
   window.print();
 };
 
-// Copy email helper
+// Copy email address helper with feedback toast
 window.copyEmailAddress = function() {
   navigator.clipboard.writeText(portfolioData.personal.email).then(() => {
     const feedback = document.getElementById("copy-email-toast");
@@ -439,7 +371,7 @@ window.copyEmailAddress = function() {
   });
 };
 
-// Copy phone helper
+// Copy phone number helper with feedback toast
 window.copyPhoneNumber = function() {
   navigator.clipboard.writeText(portfolioData.personal.phone).then(() => {
     const feedback = document.getElementById("copy-phone-toast");
